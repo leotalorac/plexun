@@ -7,7 +7,6 @@ import sys
 out = []
 
 programa = """
-
 from dep.rgx_engine import  RGXGRMM
 from dep.NFA import NFA
 import json
@@ -39,11 +38,12 @@ def evaluarLineas(lineas):
 	error = False
 	for linea in lineas:
 		for palabra in linea.split(' '):
+			find = True
+
 			for automata in automatas:
-				find = True
 				if automata.reco(palabra):
 					res += automata.token + ' '
-					find=False
+					find = False
 			if(find):
 				error = True
 	if error:
@@ -58,7 +58,9 @@ __main__()
 def leer(entrada):
 	lineas = entrada.split('\n')
 	for linea in lineas:
-		expresion, token = linea.split()
+		ln = linea.split()
+		expresion = ln[0]
+		token = ln[1]
 		automata = RGXGRMM(expresion, token)
 		out.append(automata.export())
 

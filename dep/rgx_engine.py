@@ -1,5 +1,5 @@
-from anytree.node import Node
-from anytree.render import RenderTree
+from anytree import Node
+from anytree import RenderTree
 from dep.NFA import NFA
 import copy
 

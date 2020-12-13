@@ -19,14 +19,16 @@ class NFA():
         curr = self.q0
         for char in cadena:
             if char in self.sigma:
-                if char in self.delta[str(curr)]:
-                    curr = self.delta[str(curr)][char]
-                else:
-                    if str(curr) in self.F:
-                        return True
+                if str(curr) in self. delta:
+                    if char in self.delta[str(curr)]:
+                        curr = self.delta[str(curr)][char]
                     else:
-                        return False
-                    
+                        if str(curr) in self.F:
+                            return True
+                        else:
+                            return False
+                else: 
+                    return False         
             else:
                 return False
         
