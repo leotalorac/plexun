@@ -1,1 +1,4 @@
 *.pyc
+*.xun
+*.json
+*.un.py

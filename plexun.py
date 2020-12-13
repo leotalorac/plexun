@@ -58,7 +58,7 @@ __main__()
 def leer(entrada):
 	lineas = entrada.split('\n')
 	for linea in lineas:
-		expresion, token = linea.split('\t')
+		expresion, token = linea.split()
 		automata = RGXGRMM(expresion, token)
 		out.append(automata.export())
 
